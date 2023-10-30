@@ -1,0 +1,5 @@
+pytest==7.4.0
+flake8==6.1.0
+bumpversion== 0.6.0
+sourcery==1.8.0
+pre-commit==3.3.3

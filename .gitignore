@@ -1,0 +1,8 @@
+playground/
+__pycache__/
+tests/third_parties/output
+app/lib/funcs/output
+*logger.csv
+.pytest_cache
+*output
+*.env
