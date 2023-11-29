@@ -1,0 +1,8 @@
+pytest==7.0.1
+mypy==1.4.1
+black>=23.9.1
+pytest-asyncio==0.21.1
+parallelexec==0.0.1
+bumpversion==0.6.0
+pre-commit==3.3.3
+flake8==6.1.0

@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  app_server:
+    build:
+      context: .
+      dockerfile: msrv.dockerfile
+    container_name: msrv
+    ports:
+      - "8000:8000"
+    restart: always
+
+# only run this on its own when cache is routed to remote instances

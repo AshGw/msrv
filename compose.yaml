@@ -1,0 +1,57 @@
+version: "3.3"
+services:
+  redis_limiter:
+    build:
+      context: .
+      dockerfile: redis/limiter/limiter.dockerfile
+    container_name: redis_limiter
+    restart: always
+    volumes:
+      - redis_limiter_volume_data:/volumes/data2
+    ports:
+      - 40185:40185
+
+  redis_tokens:
+    depends_on:
+      - redis_limiter
+    build:
+      context: .
+      dockerfile: redis/tokens/tokens.dockerfile
+    container_name: redis_tokens
+    restart: always
+    volumes:
+      - redis_volume_data:/volumes/data
+    ports:
+      - 40888:40888
+
+  redis_insight:
+    depends_on:
+      - redis_tokens
+    build:
+      context: .
+      dockerfile: redis/insight/insight.dockerfile
+    container_name: redis_insight
+    restart: always
+    ports:
+      - 8001:8001
+    volumes:
+      - redis_insight_volume_data:/volumes/db
+  app_server:
+    depends_on:
+      - redis_tokens
+      - redis_insight
+    build:
+      context: .
+      dockerfile: msrv.dockerfile
+    container_name: msrv
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+        -  msrv_volume_data:/volumes/msrv
+
+volumes:
+  redis_limiter_volume_data:
+  redis_volume_data:
+  redis_insight_volume_data:
+  msrv_volume_data:

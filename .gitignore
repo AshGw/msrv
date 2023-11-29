@@ -1,0 +1,10 @@
+playground/
+__pycache__/
+.pytest_cache
+*output
+*.log
+*.csv
+*.mypy_cache/
+/.ruff_cache
+poetry.lock
+*venv

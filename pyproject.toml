@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "msrv"
+version = "1.77.2"
+description = "Some side project"
+authors = ["Ashref Gwader <AshrefGw@proton.me>"]
+license = "Copyright"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = { version = "0.104.0", extras = ["all"] }
+requests = "^2.31.0"
+pillow = "^9.5.0"
+psutil = "^5.9.6"
+fastapi-limiter = "0.1.5"
+pyjwt = "^2.8.0"
+python-jose = { version = "^3.3.0", extras = ["cryptography"] }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
